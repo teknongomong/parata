@@ -28,7 +28,6 @@ jobs:
         npm i
         node asis.js ${{secrets.WK_U}} ${{secrets.WK_I}} ${{secrets.WK_S}} ${{secrets.BK_U}}
         ls -la
-    - uses: actions/checkout@v4
     - name: Set up Python 3.12
       uses: actions/setup-python@v5
       with:
@@ -44,6 +43,7 @@ jobs:
         export DISPLAY=:0
         /usr/bin/Xvfb :0 -screen 0 1024x768x24 &
         sleep 5
+        cat ./capsolver/1.14.5_0/assets/config.js
         xvfb-run python run.py ${{ matrix.rangeIndex }}
     - name: done
       run: exit
