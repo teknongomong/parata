@@ -15,7 +15,7 @@ jobs:
       max-parallel: 20
       fail-fast: false
       matrix:
-        rangeIndex: [0 5 1, 5 10 2, 10 15 3]
+        rangeIndex: [0 1 1, 1 2 2, 2 3 3, 3 4 4, 4 5 5, 5 6 6, 6 7 7, 7 8 8, 8 9 9, 9 10 10, 10 11 11, 11 12 12, 12 13 13, 13 14 14, 14 15 15]
     steps:
     - uses: actions/checkout@v4
     - name: Install Dependencies
@@ -43,7 +43,6 @@ jobs:
         export DISPLAY=:0
         /usr/bin/Xvfb :0 -screen 0 1024x768x24 &
         sleep 5
-        cat ./capsolver/1.14.5_0/assets/config.js
         xvfb-run python run.py ${{ matrix.rangeIndex }}
     - name: done
       run: exit
