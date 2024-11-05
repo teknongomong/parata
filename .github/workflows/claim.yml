@@ -15,7 +15,7 @@ jobs:
       max-parallel: 20
       fail-fast: false
       matrix:
-        rangeIndex: [10 11 1, 11 12 2, 12 13 3, 13 14 4, 14 15 5, 15 16 6, 16 17 7, 17 18 8, 18 19 9, 19 20 10]
+        rangeIndex: [15 20 1, 20 25 2, 25 30 3]
     steps:
     - uses: actions/checkout@v4
     - name: Install Dependencies
@@ -32,7 +32,7 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: 3.12
-    - name: Run
+    - name: Install
       run: |
         cd wkwk
         python -m pip install --upgrade pip wheel setuptools
