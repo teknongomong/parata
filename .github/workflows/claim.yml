@@ -37,7 +37,12 @@ jobs:
         cd wkwk
         python -m pip install --upgrade pip wheel setuptools
         pip install -r requirements.txt
-        python run-api.py ${{ matrix.rangeIndex }}
+        sudo apt install -y google-chrome-stable
+        seleniumbase install chromedriver
+        sudo apt install -y xvfb
+        export DISPLAY=:0
+        /usr/bin/Xvfb :0 -screen 0 1024x768x24 &
+        sleep 5
+        xvfb-run python run.py ${{ matrix.rangeIndex }}
     - name: done
       run: exit
-
