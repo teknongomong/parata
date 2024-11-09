@@ -15,7 +15,7 @@ jobs:
       max-parallel: 20
       fail-fast: false
       matrix:
-        rangeIndex: ["2584 2589 1", "2589 2594 2", "2594 2599 3"]
+        rangeIndex: ["2599 2604 1", "2604 2609 2", "2609 2614 3"]
     steps:
     - uses: actions/checkout@v4
     - name: Install Dependencies
